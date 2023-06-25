@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    background-color: #111;
+}
+
+h1,
+h3 {
+    font-weight: 400;
+}
+
+.weather-app {
+    min-height: 100vh;
+    background-image: url('../public/imgs/cloudy.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    position: relative;
+    /* transition: 500ms; */
+    opacity: 1;
+}
+
+.weather-app::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2em 3em 4em 3em;
+}
+
+.container>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.city,
+.tem,
+.weather {
+    margin: 0 1em;
+}
+
+
+.temp {
+    font-size: 7em;
+    margin: 0;
+}
+
+.weather img {
+    display: block;
+    margin: 0.5em 0;
+}
+
+.panel {
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgba(110, 110, 110, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    padding: 3em 2em;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel form {
+    margin-bottom: 3em;
+}
+
+.submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.5em;
+    border: none;
+    margin: 0;
+    outline: none;
+    background-color: #fa6d1b;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    /* transition: 0.4s; */
+}
+
+.submit:hover {
+    background-color: #fff;
+    color: #000;
+
+}
+
+.search {
+    background: none;
+    border: none;
+    border-bottom: 1px #ccc solid;
+    padding: 0 1em 0.5em 0;
+    width: 80%;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.search::placeholder {
+    color: #ccc;
+}
+
+.panel ul {
+    padding: 0 0 1em 0;
+    margin: 0.5em 0;
+    border-bottom: 1px #ccc solid;
+    list-style: none;
+}
+
+.panel ul li {
+    margin: 2.5em 0;
+    color: #ccc;
+
+}
+
+.panel ul h4 {
+    margin: 3em 0;
+}
+
+.city {
+    display: block;
+    cursor: pointer;
+}
+
+.city:hover {
+    color: #fff;
+
+}
+.notification-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #f44336;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .notification-bar.show {
+    opacity: 1;
+  }
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .popup-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .popup-content button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .popup-content button:hover {
+    background-color: #d32f2f;
+  }
+
+@media screen and (max-width:800px) {
+    html {
+        font-size: 15px;
+    }
+    .container,.panel {
+        position: relative;
+        width: 100vw;
+        top: initial;
+    }
+    .container>div{
+        max-width: 100vw;
+        font-size: 1em;
+    }
+
+    .weather-app {
+        min-height: 40em;
+        width: 100vw;
+    }
+    .temp{
+        font-size:4em;
+    }
+    .city-time h1{
+        font-size: 2em;
+    }
+}
